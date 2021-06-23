@@ -14,7 +14,9 @@ import java.util.Map;
 public class CodeApp {
     public static void main (String args[]) throws IOException {
 
+
 String csvFilePath="C:\\Users\\lucie\\OneDrive\\Plocha\\num2.csv";
+
         try {
             BufferedReader reader = new BufferedReader(new FileReader(csvFilePath));
             CSVParser records = CSVParser.parse(reader, CSVFormat.EXCEL.withFirstRecordAsHeader().withIgnoreHeaderCase().withTrim());
