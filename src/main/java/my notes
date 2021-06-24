@@ -1,18 +1,3 @@
-Poznámky pro příště, až zapomenu, jak se to dělá
-
-Při zakládání projektu nezapomenout na Maven
-Do pom.xml přidat dependency pro apache commons csv, mvnrepository.com
-Vytvořit klasickou entity s gettery a settery + toString, aby to šlo nějak lidsky přečíst
-Vytvořit main class, kde se bude dít to hlavní
-Deklarace proměnné - tu se uloží cesta k csv souboru
-Uložit cestu - lomítka musí být 2x !
-New BufferedReader-Filereader pro přečtení csv a použít ho
-
-
-
-
-
-
 
 Zdroje
 https://www.youtube.com/watch?v=GgCITiGjab8&ab_channel=CSAcademy
@@ -25,4 +10,5 @@ https://www.itnetwork.cz/java/soubory/java-tutorial-vyjimky-try-catch-finally
 https://is.muni.cz/el/1433/podzim2016/PB162/um/printable/compare.html
 https://stackoverflow.com/questions/218384/what-is-a-nullpointerexception-and-how-do-i-fix-it
 http://www.cs.vsb.cz/benes/vyuka/upr/texty/java/ch01s07s02.html
+https://www.geeksforgeeks.org/hashmap-get-method-in-java/
 
