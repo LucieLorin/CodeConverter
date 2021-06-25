@@ -1,5 +1,4 @@
 
-
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVRecord;
@@ -16,29 +15,42 @@ import java.util.Map;
 public class CodeApp {
     public static void main(String[] args) throws IOException {
 
+// soubory CSV
 
-        String csvFilePath = "C:\\Users\\lucie\\OneDrive\\Plocha\\num2.csv";
+        String csvFilePath = "C:\\Users\\lucie\\OneDrive\\Plocha\\num1.csv";
+        String csvFilePath2 = "C:\\Users\\lucie\\OneDrive\\Plocha\\num3.csv";
+
 
         try {
-            BufferedReader reader = new BufferedReader(new FileReader(csvFilePath));
-            CSVParser records = CSVParser.parse(reader, CSVFormat.EXCEL);
-            Map<String, CodeConverter> codeMap = new HashMap<String, CodeConverter>();
-            for (CSVRecord record : records) {
-                CodeConverter codeConverter = new CodeConverter();
-                codeConverter.setPairOfCodes(record.get(0));
+            // přečtení souborů
+            BufferedReader readerOfFileNum1 = new BufferedReader(new FileReader(csvFilePath));
+            BufferedReader readerOfFileNum3 = new BufferedReader(new FileReader(csvFilePath2));
 
-                codeMap.put(record.get(0), codeConverter);
+            //převedení na použitelný kód
+            CSVParser threeDigitCode = CSVParser.parse(readerOfFileNum1, CSVFormat.EXCEL);
+            CSVParser twoDigitCode = CSVParser.parse(readerOfFileNum3, CSVFormat.EXCEL);
 
-            }
-//            System.out.println(codeMap);
+            //převedení CVSParser na String
+            String convertedTwoDigitCode = twoDigitCode.toString();
+            String convertedThreeDigitCode = threeDigitCode.toString();
 
-           Collection collection = codeMap.values();
-           Iterator iterator = collection.iterator();
-           while (iterator.hasNext()!=false) {
-               CodeConverter codeConverter = (CodeConverter) iterator.next();
+            //vytvoření hashmap
+            Map<String, String> codeMap = new HashMap<>();
 
-           }
-            System.out.println(("Your code is: ") + codeMap.get("GD"));
+            //vložení do KEY
+            //vložení do VALUE
+
+            // testovací output
+            System.out.println(twoDigitCode);
+            System.out.println(("Your code is: ") + codeMap.get("TK"));
+
+
+//            Collection collection = codeMap.values();
+//            Iterator iterator = collection.iterator();
+//            while (iterator.hasNext() != false) {
+//                CodeConverter codeConverter = (CodeConverter) iterator.next();
+//
+//            }
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();
