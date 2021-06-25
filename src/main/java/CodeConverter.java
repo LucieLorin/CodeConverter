@@ -21,7 +21,7 @@ public class CodeConverter {
 
     @Override
     public String toString() {
-        return twoDigitCode="  = twoDigitCode /" + threeDigitCode + " = threeDigitCode/";
+        return twoDigitCode + threeDigitCode;
     }
 }
 
