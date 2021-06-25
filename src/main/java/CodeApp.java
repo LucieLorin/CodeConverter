@@ -1,4 +1,5 @@
 
+import a.c.h.C;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVRecord;
@@ -27,30 +28,37 @@ public class CodeApp {
             BufferedReader readerOfFileNum3 = new BufferedReader(new FileReader(csvFilePath2));
 
             //převedení na použitelný kód
-            CSVParser threeDigitCode = CSVParser.parse(readerOfFileNum1, CSVFormat.EXCEL);
-            CSVParser twoDigitCode = CSVParser.parse(readerOfFileNum3, CSVFormat.EXCEL);
+            CSVParser threeDigitCode = CSVParser.parse(readerOfFileNum3, CSVFormat.EXCEL);
+            CSVParser twoDigitCode = CSVParser.parse(readerOfFileNum1, CSVFormat.EXCEL);
 
-            //převedení CVSParser na String
-            String convertedTwoDigitCode = twoDigitCode.toString();
-            String convertedThreeDigitCode = threeDigitCode.toString();
 
             //vytvoření hashmap
-            Map<String, String> codeMap = new HashMap<>();
+            Map<String, CodeConverter> codeMap = new HashMap<>();
 
             //vložení do KEY
+            for (CSVRecord record: twoDigitCode
+                 ) {CodeConverter codeConverter = new CodeConverter();
+                codeConverter.setTwoDigitCode(record.get(0));
+                codeMap.put(record.get(0), codeConverter);
+
+            }
             //vložení do VALUE
+            for (CSVRecord record: threeDigitCode
+            ) {CodeConverter codeConverter = new CodeConverter();
+                codeConverter.setThreeDigitCode(record.get(0));
+                codeMap.put(record.get(0), codeConverter);
 
+            }
             // testovací output
-            System.out.println(twoDigitCode);
-            System.out.println(("Your code is: ") + codeMap.get("TK"));
 
+            System.out.println(codeMap);
 
-//            Collection collection = codeMap.values();
-//            Iterator iterator = collection.iterator();
-//            while (iterator.hasNext() != false) {
-//                CodeConverter codeConverter = (CodeConverter) iterator.next();
-//
-//            }
+            Collection collection = codeMap.values();
+            Iterator iterator = collection.iterator();
+            while (iterator.hasNext() != false) {
+                CodeConverter codeConverter = (CodeConverter) iterator.next();
+
+            }
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();

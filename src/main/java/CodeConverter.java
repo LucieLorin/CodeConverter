@@ -1,17 +1,28 @@
 public class CodeConverter {
 
-    private String code;
+    private String twoDigitCode;
+    private String threeDigitCode;
 
-    public String getCode() {
-        return code;
+    public String getTwoDigitCode() {
+        return twoDigitCode;
     }
 
-    public void setCode(String code) {
-        this.code = code;
+    public void setTwoDigitCode(String twoDigitCode) {
+        this.twoDigitCode = twoDigitCode;
+    }
+
+    public String getThreeDigitCode() {
+        return threeDigitCode;
+    }
+
+    public void setThreeDigitCode(String threeDigitCode) {
+        this.threeDigitCode = threeDigitCode;
     }
 
     @Override
     public String toString() {
-        return code;
+        return twoDigitCode="  = twoDigitCode /" + threeDigitCode + " = threeDigitCode/";
     }
 }
+
+
