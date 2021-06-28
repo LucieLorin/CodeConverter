@@ -21,7 +21,6 @@ class CodeApp {
 
         // output
         System.out.println(ISO3Code);
-
     }
 }
 
